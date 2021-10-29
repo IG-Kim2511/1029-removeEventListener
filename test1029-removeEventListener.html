@@ -11,8 +11,12 @@
         background-color: red;
       }
 
-      .blue {
-        font-size: 10rem;
+      .size {
+        font-size: 5rem;
+      }
+
+      .border {
+        border: 10px blue solid;
       }
     </style>
   </head>
@@ -25,9 +29,12 @@
       const kei = document.querySelector(".kei");
       const remove = document.querySelector(".remove");
 
+      //   add event
       kei.addEventListener("click", init);
 
       function init() {
+        //  🦄함수안에 호출한 다른 함수 작동 ok
+        // 🦄여러개 함수 호출 ok
         handler();
         handler2();
       }
@@ -37,11 +44,17 @@
       }
 
       function handler2(params) {
-        kei.classList.toggle("blue");
+        kei.classList.toggle("size");
+
+        // 🦄함수 전체를 넣은것은 작동 x
+        function border(params) {
+          kei.classList.toggle("border");
+        }
       }
 
+      //   remove event
       remove.addEventListener("click", () => {
-        // 🍤remove event listener
+        // 🍀remove event listener
         kei.removeEventListener("click", init);
       });
     </script>
