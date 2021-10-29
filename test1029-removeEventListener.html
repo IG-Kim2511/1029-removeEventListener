@@ -10,6 +10,10 @@
       .red {
         background-color: red;
       }
+
+      .blue {
+        font-size: 10rem;
+      }
     </style>
   </head>
   <body>
@@ -21,15 +25,24 @@
       const kei = document.querySelector(".kei");
       const remove = document.querySelector(".remove");
 
-      kei.addEventListener("click", handler);
+      kei.addEventListener("click", init);
+
+      function init() {
+        handler();
+        handler2();
+      }
 
       function handler(params) {
         kei.classList.toggle("red");
       }
 
+      function handler2(params) {
+        kei.classList.toggle("blue");
+      }
+
       remove.addEventListener("click", () => {
         // 🍤remove event listener
-        kei.removeEventListener("click", handler);
+        kei.removeEventListener("click", init);
       });
     </script>
   </body>
